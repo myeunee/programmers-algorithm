@@ -1,0 +1,19 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> num_list) {
+    vector<int> answer;
+    
+    int vec_size = num_list.size();
+    int num;
+    
+    for(int i=0; i<vec_size; i++){
+        num = num_list.at(vec_size-i-1);
+        // answer.at(i) = num_list.at(num);
+        answer.push_back(num);
+    }
+        
+    return answer;
+}
