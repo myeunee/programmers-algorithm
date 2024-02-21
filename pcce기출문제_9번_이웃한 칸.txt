@@ -1,0 +1,29 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<vector<string>> board, int h, int w) {
+    int answer = 0;
+    
+    // sizeof, size의 차이점 블로그 기록하기
+    
+    int n = board[0].size(); // 열의 길이
+
+    // h,w 의 변화량
+    vector<int> dh = {0,1,-1,0};
+    vector<int> dw = {1,0,0,-1};
+    
+    int h_check, w_check;
+    for(int i=0; i<=3; i++){
+        h_check = h + dh[i];
+        w_check = w + dw[i];
+        
+        // board의 길이와 board[n]의 길이는 동일합니다 -> 행, 열의 길이가 같음을 의미X
+        // h_check와 w_check의 최대 길이도 다름
+        if(h_check >=0 && h_check < board.size() && w_check >=0 && w_check < n)
+            if(board[h][w] == board[h_check][w_check]) answer++;
+    }
+    
+    return answer;
+}
