@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(string s) {
+    vector<int> answer;
+    int a =0;
+    
+    answer.push_back(-1);
+    
+    for(int i =1; i< s.size(); i++){
+        
+        answer.push_back(-1);
+        
+        for(int n = 0; n < i; n++){
+           if(s[i] == s[n]) { answer[i] = i-n; }
+        }
+    }
+    return answer;
+}
